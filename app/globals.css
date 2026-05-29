@@ -1810,3 +1810,402 @@ html{
   .closing-info a{font-size:10.5px;padding:11px 18px}
   .studio-info .row{grid-template-columns:1fr;gap:4px}
 }
+
+/* ===================================================
+   MOBILE / TABLET POLISH
+   Phone breakpoints + a real mobile menu + tight type.
+   =================================================== */
+
+/* ---------- Mobile menu (works at <=1024px) ---------- */
+@media (max-width:1024px){
+  .nav-links{
+    position:fixed;top:var(--nav-h);left:0;right:0;
+    background:rgba(250,245,233,.98);
+    backdrop-filter:blur(20px) saturate(160%);
+    -webkit-backdrop-filter:blur(20px) saturate(160%);
+    display:flex !important;flex-direction:column;
+    gap:0;padding:0;
+    max-height:0;overflow:hidden;
+    transition:max-height .35s var(--ease-out), padding .35s var(--ease-out);
+    border-bottom:1px solid var(--rule);
+    z-index:99;
+  }
+  .nav-links.open{
+    max-height:calc(100vh - var(--nav-h));
+    padding:18px 0 24px;
+    overflow-y:auto;
+  }
+  .nav-links a{
+    padding:14px var(--gutter);
+    font-size:18px;
+    border-bottom:1px solid var(--rule);
+    font-weight:500;
+  }
+  .nav-links a::after{display:none}
+  .nav-links a:last-child{border-bottom:0}
+
+  .menu-toggle{
+    display:inline-flex !important;align-items:center;justify-content:center;
+    width:44px;height:44px;border:1px solid var(--rule-strong);border-radius:50%;
+    background:transparent;cursor:pointer;
+    transition:background .3s var(--ease-out), border-color .3s var(--ease-out);
+  }
+  .menu-toggle:hover,.menu-toggle.open{background:var(--ink);border-color:var(--ink)}
+  .menu-toggle:hover span,.menu-toggle.open span,
+  .menu-toggle:hover span::before,.menu-toggle:hover span::after,
+  .menu-toggle.open span::before,.menu-toggle.open span::after{background:var(--paper)}
+  .menu-toggle.open span{background:transparent}
+  .menu-toggle.open span::before{top:0;transform:rotate(45deg)}
+  .menu-toggle.open span::after{top:0;transform:rotate(-45deg)}
+  .menu-toggle span,.menu-toggle span::before,.menu-toggle span::after{
+    transition:transform .3s var(--ease-out), background .3s var(--ease-out), top .3s var(--ease-out);
+  }
+
+  body.menu-open{overflow:hidden}
+
+  /* Hide the nav "Book a call" CTA on small screens; menu has Contact */
+  .nav-inner > .cta-btn{display:none}
+}
+
+/* ---------- Tablets and mid-screens (<=900px) ---------- */
+@media (max-width:900px){
+  :root{--gutter:clamp(18px, 5vw, 28px); --nav-h:64px}
+
+  .hero,.voxx-hero,.page-hero,.cover{min-height:auto}
+
+  .hero{padding:calc(var(--nav-h) + 40px) 0 40px}
+  .hero h1{font-size:clamp(36px, 9vw, 62px)}
+  .hero-lede{font-size:15px;line-height:1.55;margin:18px 0 22px}
+  .hero-meta{gap:14px;margin-bottom:20px}
+  .hero-meta .eyebrow{font-size:10px}
+  .hero-ctas{gap:10px}
+  .hero-visual{height:280px}
+  .hv-caption .h{font-size:18px}
+
+  .hero-stats{grid-template-columns:repeat(2,1fr);margin-top:30px}
+  .hero-stat{padding:14px 16px}
+  .hero-stat .n{font-size:24px}
+  .hero-stat .l{font-size:9px}
+
+  .marquee{padding:14px 0}
+  .marquee-item{font-size:18px;gap:48px}
+  .marquee-item::after{margin-left:48px;font-size:13px}
+  .marquee-track{gap:48px;animation-duration:30s}
+
+  /* Flagship section (home) */
+  .flagship{padding:50px 0 40px}
+  .flagship h2{font-size:clamp(32px, 7vw, 48px);margin:0 0 14px}
+  .flagship-lede{font-size:14.5px;margin:0 0 18px}
+  .flagship-features{gap:10px;margin-bottom:18px}
+  .flag-feat .icon{width:36px;height:36px}
+  .flag-feat h5{font-size:14px}
+  .flag-feat p{font-size:13px}
+  .flagship-mockup{padding:16px;font-size:10.5px}
+  .fm-cand .info .n{font-size:11px}
+  .fm-cand .info .r{font-size:9px}
+  .fm-cand .av{width:24px;height:24px;font-size:10px}
+  .fm-cand .bar{width:34px}
+  .fm-stat .v{font-size:18px}
+
+  /* Section heads */
+  .section-head{margin-bottom:24px}
+  .section-head h2{font-size:clamp(28px, 7vw, 44px)}
+
+  /* Lanes */
+  .lane{padding:24px 22px;gap:12px;min-height:auto}
+  .lane h3{font-size:22px}
+  .lane p{font-size:13.5px}
+  .lane-list{font-size:11px;line-height:1.9}
+
+  /* Process */
+  .process-stages{gap:32px 0;margin-top:30px}
+  .stage{padding:0 14px;gap:10px}
+  .stage-node{width:54px;height:54px;font-size:20px}
+  .stage h4{font-size:20px}
+  .stage p{font-size:13px}
+
+  /* Manifesto */
+  .manifesto{padding:60px 0 50px}
+  .manifesto blockquote{font-size:clamp(24px, 6vw, 38px);line-height:1.18}
+  .manifesto-foot{margin-top:24px;padding-top:18px;flex-wrap:wrap;gap:10px}
+  .manifesto-foot .signature{font-size:17px}
+
+  /* CTA */
+  .cta{padding:60px 0 50px}
+  .cta h2{font-size:clamp(40px, 12vw, 80px)}
+  .cta p{font-size:14.5px}
+  .cta-buttons{gap:10px}
+  .big-name{font-size:clamp(80px, 28vw, 200px);opacity:.5}
+
+  /* Buttons — bigger tap targets */
+  .cta-btn,.cta-ghost,.cta-accent{
+    padding:12px 18px;font-size:13.5px;
+    min-height:44px;
+  }
+  .nav-inner{padding:12px 0}
+  .brand{font-size:18px;gap:10px}
+  .brand-mark{width:26px;height:26px}
+  .brand-mark::after{width:8px;height:8px}
+  .brand small{display:none}
+
+  /* Hero divider row */
+  .hero-divider-row{margin-top:30px;padding-top:20px;gap:10px}
+  .hero-divider-row .left,.hero-divider-row .right{gap:14px}
+
+  /* Mockup cards in feature rows shrink */
+  .mock{padding:18px;aspect-ratio:auto;max-height:none;min-height:340px}
+  .mock-h{font-size:18px}
+  .mock-sub{font-size:10px;margin-bottom:12px}
+  .mock-kpi .v{font-size:24px}
+  .mock-score .v{font-size:64px}
+  .mock-row{grid-template-columns:1fr 50px 28px;gap:8px;padding:6px 8px}
+  .mock-row .n{font-size:11px}
+  .mock-row .s{font-size:13px}
+
+  /* Voxx hero meta tags wrap nicely */
+  .voxx-hero{padding:calc(var(--nav-h) + 40px) 0 40px}
+  .voxx-hero h1{font-size:clamp(36px, 9vw, 58px)}
+  .voxx-hero .lede{font-size:15px;margin:18px 0 20px}
+  .voxx-hero .meta{gap:8px;margin-bottom:20px}
+  .voxx-hero .meta .tag{font-size:10px;padding:5px 11px}
+
+  /* Modes section */
+  .modes{padding:50px 0 40px}
+  .mode{padding:24px 22px;gap:12px}
+  .mode-icon{width:38px;height:38px}
+  .mode-icon svg{width:18px;height:18px}
+  .mode h3{font-size:22px}
+  .mode p{font-size:13.5px}
+
+  /* Numbers section */
+  .numbers{padding:50px 0 40px}
+  .numbers .head h2{font-size:clamp(28px, 7vw, 40px)}
+  .num{padding:20px 18px}
+  .num .v{font-size:clamp(32px, 9vw, 44px)}
+  .num .l{font-size:10px}
+
+  /* Partners */
+  .partners{padding:50px 0 40px}
+  .partners-head{margin-bottom:20px}
+  .partners-head h2{font-size:clamp(28px, 7vw, 40px)}
+  .partner-logo{padding:36px 20px;min-height:220px}
+  .partner-logo .mark{font-size:46px}
+
+  /* Service rows */
+  .svc-row{gap:30px}
+  .svc-text h3{font-size:clamp(26px, 7vw, 38px);margin:0 0 12px}
+  .svc-text p{font-size:14.5px;margin:0 0 14px}
+  .svc-list{padding-top:14px}
+  .svc-list .item .t{font-size:13px}
+  .svc-visual,.product-row .visual{aspect-ratio:5/4;max-height:50vh}
+
+  /* Product page */
+  .flagship-card{padding:24px;gap:24px}
+  .flagship-card h2{font-size:clamp(28px, 7vw, 40px)}
+  .flagship-card p{font-size:14.5px}
+  .product-row,.product-row.flip{padding:24px;gap:24px}
+  .product-row h3{font-size:clamp(26px, 7vw, 36px)}
+  .product-row p{font-size:14px}
+
+  /* Contact form */
+  .form-row input,.form-row textarea,.form-row select{
+    padding:13px 14px;font-size:16px; /* iOS won't zoom on 16px+ */
+  }
+  .contact-info .block h4{font-size:20px}
+  .contact-info .block p,.contact-info .block a{font-size:14.5px}
+
+  /* ABOUT MAGAZINE: cover */
+  .cover{padding:calc(var(--nav-h) + 30px) var(--gutter) 40px}
+  .cover::before{inset:18px 12px}
+  .cover::after{inset:14px 6px}
+  .cover-meta{font-size:9.5px;letter-spacing:.18em;margin-bottom:22px}
+  .cover-meta span{padding:0 8px}
+  .cover-title{font-size:clamp(80px, 26vw, 180px)}
+  .cover-quote{font-size:clamp(17px, 4vw, 22px);margin:22px auto 28px;max-width:32ch}
+  .cover-byline{gap:18px;font-size:9.5px}
+  .cover-byline span{font-size:11.5px}
+  .cover-byline .lbl{font-size:9px}
+  .cover-ornament{margin-top:22px}
+  .cover-ornament::before,.cover-ornament::after{width:50px}
+
+  /* About chapters */
+  .chapter{padding:calc(var(--nav-h) + 30px) 0 40px}
+  .chapter-numeral{font-size:140px;left:-8px;top:24px;transform:none;opacity:.10}
+  .chapter h2{font-size:clamp(30px, 8vw, 52px);margin:0 0 18px}
+  .chapter p{font-size:15px}
+  .chapter-label{margin-bottom:16px}
+  .dropcap::first-letter{font-size:4em;margin:.04em .12em 0 0}
+  .pull-quote{font-size:clamp(18px, 4.5vw, 26px);padding:20px 0;margin:24px 0}
+  .side-note{display:none}
+
+  /* Founder portraits — sized for phones */
+  .founder-spread,.founder-spread.mirror{gap:24px}
+  .portrait-frame{aspect-ratio:5/6;max-height:none;padding:28px 22px 22px}
+  .portrait-numeral{font-size:42px}
+  .portrait-initials{font-size:clamp(80px, 22vw, 140px)}
+  .portrait-name{font-size:11px;letter-spacing:.24em}
+  .portrait-meta{padding-top:14px;font-size:11px}
+  .big-quote{font-size:clamp(18px, 4.5vw, 24px);padding-left:18px;margin:0 0 20px}
+  .founder-text h2{font-size:clamp(28px, 7vw, 44px)}
+
+  /* Product chapter stats */
+  .chapter-product .chapter-stats{
+    grid-template-columns:1fr;margin:24px 0;
+  }
+  .chapter-product .chapter-stats > div{
+    border-right:0;border-bottom:1px solid var(--rule);
+    padding:18px 0;
+  }
+  .chapter-product .chapter-stats > div:last-child{border-bottom:0}
+  .chapter-product .chapter-stats .v{font-size:36px}
+
+  /* Studio (dark) */
+  .chapter-studio h2{color:var(--paper)}
+  .studio-info .row{grid-template-columns:1fr;gap:4px;padding:12px 0;font-size:12px}
+  .studio-map{aspect-ratio:4/3}
+
+  /* Principles */
+  .principles{grid-template-columns:1fr}
+  .principle{padding:22px 20px;border-right:0;border-bottom:1px solid var(--rule)}
+  .principle:last-child{border-bottom:0}
+  .principle .num{font-size:40px}
+  .principle h3{font-size:20px}
+
+  /* Closing back cover */
+  .cover.closing{padding:calc(var(--nav-h) + 30px) var(--gutter) 40px}
+  .cover.closing .closing-meta{font-size:9.5px;margin-bottom:22px;flex-wrap:wrap;justify-content:center;gap:6px}
+  .closing-quote{font-size:clamp(40px, 14vw, 90px)}
+  .closing-info{gap:8px;margin-bottom:30px}
+  .closing-info a{font-size:10px;padding:10px 14px;letter-spacing:.1em}
+  .closing-end{font-size:10px}
+  .closing-end::before,.closing-end::after{width:35px}
+
+  /* Manifesto-grid stacks */
+  .manifesto-grid{grid-template-columns:1fr}
+
+  /* Footer */
+  footer{padding:50px 0 30px}
+  .foot-grid{gap:32px;margin-bottom:36px}
+  .foot-brand p{font-size:13.5px}
+  .foot-col h6{font-size:10.5px}
+  .foot-col a{font-size:13.5px}
+}
+
+/* ---------- Small phones (<=480px) — extra tightening ---------- */
+@media (max-width:480px){
+  :root{--nav-h:60px}
+
+  .hero h1{font-size:clamp(32px, 10vw, 48px);line-height:1.02}
+  .voxx-hero h1,.page-hero h1{font-size:clamp(32px, 10vw, 48px);line-height:1.02}
+
+  .hero-meta{flex-direction:column;align-items:flex-start;gap:10px;margin-bottom:16px}
+  .hero-meta .eyebrow{font-size:9.5px;letter-spacing:.2em}
+
+  .hero-ctas,.hero-divider-row,.cta-buttons{flex-direction:column;align-items:stretch}
+  .hero-ctas a,.cta-buttons a{justify-content:center;text-align:center}
+  .hero-divider-row{grid-template-columns:1fr;text-align:center;gap:8px}
+  .hero-divider-row .left,.hero-divider-row .right{justify-content:center}
+  .hero-divider-row .center::before,.hero-divider-row .center::after{display:none}
+
+  .hero-visual{height:220px}
+  .hv-caption{left:18px;right:18px;bottom:18px}
+  .hv-caption .h{font-size:15px}
+  .hv-caption .s{font-size:9.5px}
+  .hv-label{top:18px;left:18px;font-size:9px}
+  .hv-corner{width:10px;height:10px}
+
+  .section{padding:40px 0 30px}
+
+  /* Stats single column on tiny screens */
+  .hero-stats{grid-template-columns:1fr}
+  .hero-stat{border-right:0;border-bottom:1px solid var(--rule);padding:14px 18px}
+  .hero-stat:last-child{border-bottom:0}
+
+  .numbers-grid{grid-template-columns:1fr}
+  .num{border-right:0;border-bottom:1px solid rgba(250,245,233,.08)}
+  .num:last-child{border-bottom:0}
+
+  /* Lanes & modes & product cards single column */
+  .lanes,.modes-grid,.products-grid,.values-grid,.partner-logos,.partner-logos.four,.founders-grid{
+    grid-template-columns:1fr;
+  }
+
+  /* Service rows */
+  .svc-row,.svc-row.flip,.product-row,.product-row.flip,.flagship-card{
+    grid-template-columns:1fr;gap:20px;padding:22px;
+  }
+
+  /* Voxxhire flagship card on home */
+  .flagship-inner{grid-template-columns:1fr;gap:24px}
+  .voxx-hero-grid,.studio-spread{grid-template-columns:1fr;gap:24px}
+  .chapter-inner{grid-template-columns:1fr;gap:24px}
+
+  /* Mockups */
+  .mock{min-height:300px}
+  .mock-top{flex-wrap:wrap;gap:8px}
+  .mock-top .r{font-size:9px}
+  .mock-kpis{gap:6px}
+  .mock-kpi{padding:10px 12px}
+  .mock-score{flex-direction:column;align-items:flex-start;gap:10px}
+  .mock-score .v{font-size:54px}
+  .mock-chips{gap:5px}
+  .mock-chip{font-size:9px;padding:4px 8px}
+
+  /* Marquee even smaller */
+  .marquee-item{font-size:16px;gap:32px}
+  .marquee-item::after{margin-left:32px}
+  .marquee-track{gap:32px}
+
+  /* About — extra cover tightening */
+  .cover-title{font-size:clamp(70px, 28vw, 130px);line-height:.85}
+  .cover-quote{font-size:clamp(16px, 4.5vw, 20px)}
+  .cover-byline{flex-direction:column;gap:14px;align-items:center}
+  .chapter-numeral{font-size:120px}
+  .closing-quote{font-size:clamp(36px, 16vw, 70px)}
+
+  /* Form tighter */
+  .form-double{grid-template-columns:1fr;gap:16px}
+  .form{gap:14px}
+
+  /* Footer */
+  .foot-grid{grid-template-columns:1fr;gap:28px}
+  .foot-bottom{flex-direction:column;gap:14px;align-items:flex-start;font-size:10px}
+
+  /* Touch targets — 44x44 minimum */
+  .nav-links a{padding:16px var(--gutter);min-height:48px}
+  .partner-logo{min-height:200px;padding:30px 18px}
+}
+
+/* ---------- Very small phones (<=360px) ---------- */
+@media (max-width:360px){
+  .cover-title{font-size:24vw}
+  .hero h1{font-size:32px}
+  .voxx-hero h1,.page-hero h1{font-size:32px}
+}
+
+/* ---------- Reduce motion: respect users who opted out ---------- */
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{
+    animation-duration:.01ms !important;
+    animation-iteration-count:1 !important;
+    transition-duration:.01ms !important;
+    scroll-behavior:auto !important;
+  }
+  .bg-video,.bg-fallback svg{display:none}
+  .marquee-track{animation:none;transform:none}
+  .stage-node::before{animation:none}
+  .mock-meter .track i{animation:none;width:94%}
+}
+
+/* ---------- iOS Safari fix: vh units ---------- */
+@supports (height:100dvh){
+  .hero,.voxx-hero,.page-hero,.cover{min-height:78dvh}
+}
+
+/* ---------- Ensure horizontal overflow never breaks layout ---------- */
+html,body{overflow-x:hidden;max-width:100vw}
+img,svg,video{max-width:100%;height:auto}
+.mock,.svc-visual,.product-row .visual,.dubai-img,.studio-map,.hero-visual,
+.flagship-mockup,.portrait-frame,.flagship-card,.product-row,.svc-row{
+  max-width:100%;
+}
