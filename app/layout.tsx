@@ -1,31 +1,21 @@
 import type { Metadata } from "next";
-import { Inter, Space_Grotesk } from "next/font/google";
 import "./globals.css";
-
-const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-inter"
-});
-
-const spaceGrotesk = Space_Grotesk({
-  subsets: ["latin"],
-  variable: "--font-space-grotesk"
-});
+import { ScrollReveal } from "@/components/scroll-reveal";
 
 export const metadata: Metadata = {
   title: {
-    default: "SM Stratagem",
+    default: "SM Stratagem — Building VoxxHire and the software that supports forward-thinking teams.",
     template: "%s · SM Stratagem"
   },
   description:
-    "SM Stratagem builds intelligent systems and custom software for founders, CTOs, and enterprise teams.",
+    "A Dubai-based digital product studio. We build VoxxHire — our B2B, B2C, and B2B2C assessment platform — alongside custom websites and software for enterprises, SMEs, and universities.",
   metadataBase: new URL("https://sm-stratagem.com"),
   applicationName: "SM Stratagem",
-  authors: [{ name: "SM Stratagem" }],
+  authors: [{ name: "SM Stratagem" }, { name: "Suhayl Dastager" }, { name: "Mariam Mohammed" }],
   openGraph: {
     title: "SM Stratagem",
     description:
-      "Strategic AI and software delivery for founders, CTOs, and enterprise teams.",
+      "A Dubai-based digital product studio. Maker of VoxxHire — and the websites and software around it.",
     url: "https://sm-stratagem.com",
     siteName: "SM Stratagem",
     locale: "en_US",
@@ -34,8 +24,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "SM Stratagem",
-    description:
-      "Strategic AI and software delivery for founders, CTOs, and enterprise teams."
+    description: "A Dubai-based digital product studio. Maker of VoxxHire."
   }
 };
 
@@ -46,8 +35,17 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.variable} ${spaceGrotesk.variable}`}>
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
+        <link
+          rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,300..900,0..100,0..1;1,9..144,300..900,0..100,0..1&family=Geist:wght@100..900&family=JetBrains+Mono:wght@400;500&display=swap"
+        />
+      </head>
+      <body>
         {children}
+        <ScrollReveal />
       </body>
     </html>
   );

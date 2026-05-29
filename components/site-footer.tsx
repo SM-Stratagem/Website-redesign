@@ -2,35 +2,52 @@ import Link from "next/link";
 
 export function SiteFooter() {
   return (
-    <footer className="footer section-tight">
-      <div className="container footer-inner panel panel-soft">
-        <div>
-          <p className="eyebrow">SM Stratagem</p>
-          <h2>Intelligent systems, built with clarity.</h2>
-          <p>
-            A disciplined digital partner for teams that need strong thinking,
-            clean execution, and dependable delivery.
-          </p>
-          <p className="footer-note">
-            Focus areas: AI strategy, custom software, delivery support, and
-            brand-grade presentation for technical work.
-          </p>
+    <footer>
+      <div className="wrap">
+        <div className="foot-grid">
+          <div className="foot-brand">
+            <div className="brand">
+              <span className="brand-mark"></span>
+              <span>SM Stratagem</span>
+            </div>
+            <p>
+              A digital product studio in Dubai. Maker of VoxxHire — and the
+              websites and software around it for SMEs, enterprises, and
+              universities.
+            </p>
+            <p className="foot-contact">contact@sm-stratagem.com</p>
+          </div>
+          <div className="foot-col">
+            <h6>Studio</h6>
+            <ul>
+              <li><Link href="/voxxhire">VoxxHire</Link></li>
+              <li><Link href="/services">Services</Link></li>
+              <li><Link href="/products">Studio products</Link></li>
+              <li><Link href="/about">About</Link></li>
+            </ul>
+          </div>
+          <div className="foot-col">
+            <h6>Products</h6>
+            <ul>
+              <li><Link href="/voxxhire">VoxxHire</Link></li>
+              <li><Link href="/products#insights">SM Insights</Link></li>
+              <li><Link href="/products#websites">SM Websites</Link></li>
+              <li><Link href="/products#vidsights">VidSights</Link></li>
+            </ul>
+          </div>
+          <div className="foot-col">
+            <h6>Contact</h6>
+            <ul>
+              <li><a href="mailto:contact@sm-stratagem.com">contact@sm-stratagem.com</a></li>
+              <li><Link href="/about">in5 Tech, Dubai</Link></li>
+              <li><a href="https://ae.linkedin.com/in/suhayl-dastager" target="_blank" rel="noopener">Suhayl on LinkedIn</a></li>
+              <li><a href="https://www.linkedin.com/in/mariammohammed212/" target="_blank" rel="noopener">Mariam on LinkedIn</a></li>
+            </ul>
+          </div>
         </div>
-
-        <div className="footer-links">
-          <div>
-            <span>Explore</span>
-            <Link href="/about">About</Link>
-            <Link href="/services">Services</Link>
-            <Link href="/case-studies">Case Studies</Link>
-            <Link href="/insights">Insights</Link>
-          </div>
-          <div>
-            <span>Contact</span>
-            <Link href="/contact">Get in touch</Link>
-            <a href="mailto:hello@sm-stratagem.com">hello@sm-stratagem.com</a>
-            <span className="footer-small">Reply window: 1 business day</span>
-          </div>
+        <div className="foot-bottom">
+          <span className="dubai">Made in Dubai · 25.0772° N, 55.1410° E</span>
+          <span>© 2026 SM Stratagem · All rights reserved</span>
         </div>
       </div>
     </footer>

@@ -4,10 +4,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const base = "https://sm-stratagem.com";
   return [
     "",
-    "/about",
+    "/voxxhire",
     "/services",
-    "/case-studies",
-    "/insights",
+    "/products",
+    "/about",
     "/contact"
   ].map((path) => ({
     url: `${base}${path}`,
