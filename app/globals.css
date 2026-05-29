@@ -652,7 +652,8 @@ footer{border-top:1px solid var(--rule);padding:80px 0 40px;background:var(--pap
 /* ===================================================
    Reveal animation
    =================================================== */
-.reveal{opacity:0;transform:translateY(28px);transition:opacity .9s var(--ease-out),transform .9s var(--ease-out)}
+/* Content is always visible. .reveal kept only for legacy hooks. */
+.reveal{opacity:1;transform:none}
 .reveal.in{opacity:1;transform:none}
 .reveal.d1{transition-delay:.05s}
 .reveal.d2{transition-delay:.12s}
@@ -796,15 +797,14 @@ footer{border-top:1px solid var(--rule);padding:80px 0 40px;background:var(--pap
 }
 
 /* ===================================================
-   VIEWPORT-FIT OVERRIDES
-   Every section sized to a single screen with scroll-snap.
+   SECTION SIZING
+   Sections breathe to their content. No scroll-snap (caused
+   jumpy scroll on long pages). Comfortable padding.
    =================================================== */
 html{
-  scroll-snap-type:y proximity;
   scroll-behavior:smooth;
 }
 
-/* Section snap targets — each fills one viewport, content vertically centered */
 .hero,
 .flagship,
 .partners,
@@ -817,16 +817,20 @@ html{
 .location,
 .page-hero,
 .section{
-  min-height:100vh;
-  min-height:100dvh;
   display:flex;
   flex-direction:column;
   justify-content:center;
-  scroll-snap-align:start;
-  scroll-snap-stop:normal;
 }
 
-/* Service / product rows live INSIDE a viewport section — no own snap */
+/* Hero-style sections need to feel substantial. */
+.hero,
+.voxx-hero,
+.page-hero,
+.cover{
+  min-height:78vh;
+  min-height:78dvh;
+}
+
 .svc-row{
   display:grid;
   align-items:center;
@@ -837,9 +841,6 @@ html{
   display:grid;
   align-items:center;
 }
-
-/* Marquee and footer don't snap — they bookend without owning a viewport */
-.marquee,footer{scroll-snap-align:none}
 
 /* Tighten section padding */
 .section,
@@ -1465,8 +1466,7 @@ html{
   background:var(--paper);position:relative;overflow:hidden;
   display:flex;flex-direction:column;justify-content:center;align-items:center;
   text-align:center;padding:calc(var(--nav-h) + 30px) var(--gutter) 50px;
-  min-height:100vh;min-height:100dvh;scroll-snap-align:start;
-}
+  }
 .cover::before{
   content:"";position:absolute;inset:30px var(--gutter);border:1px solid var(--rule);border-radius:6px;pointer-events:none;
 }
@@ -1522,8 +1522,7 @@ html{
   background:var(--paper);position:relative;overflow:hidden;
   display:flex;flex-direction:column;justify-content:center;
   padding:calc(var(--nav-h) + 30px) 0 50px;
-  min-height:100vh;min-height:100dvh;scroll-snap-align:start;
-}
+  }
 
 .chapter-numeral{
   font-family:var(--serif);font-style:italic;
