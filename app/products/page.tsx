@@ -5,14 +5,104 @@ import { SiteFooter } from "@/components/site-footer";
 import { VideoHeroBackground } from "@/components/video-hero";
 
 export const metadata: Metadata = {
-  title: "Studio Products — VoxxHire + Insights, Websites, VidSights",
+  title: "Studio Products · VoxxHire, SM Insights, SM Websites, VidSights",
   description:
-    "A small portfolio of products built from client work — SM Insights, SM Websites, VidSights — alongside our flagship VoxxHire."
+    "A focused portfolio of products from SM Stratagem. Flagship VoxxHire (interview assessment), SM Insights (leadership dashboards), SM Websites (productized sites), and VidSights (video analytics).",
+  keywords: [
+    "SM Stratagem products",
+    "VoxxHire",
+    "SM Insights",
+    "SM Websites",
+    "VidSights",
+    "leadership dashboard software",
+    "productized website platform",
+    "video content analytics",
+    "Dubai SaaS",
+    "UAE software products",
+    "KPI dashboard software"
+  ],
+  alternates: { canonical: "/products" },
+  openGraph: {
+    title: "Studio Products · SM Stratagem",
+    description:
+      "Four products from the studio: VoxxHire, SM Insights, SM Websites, VidSights.",
+    url: "/products",
+    type: "website"
+  }
+};
+
+const productsSchema = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  itemListElement: [
+    {
+      "@type": "ListItem",
+      position: 1,
+      item: {
+        "@type": "SoftwareApplication",
+        name: "VoxxHire",
+        applicationCategory: "BusinessApplication",
+        url: "https://www.voxxhire.com/",
+        description:
+          "B2B, B2C, B2B2C interview assessment platform with structured rubrics and decision-ready reporting."
+      }
+    },
+    {
+      "@type": "ListItem",
+      position: 2,
+      item: {
+        "@type": "SoftwareApplication",
+        name: "SM Insights",
+        applicationCategory: "BusinessApplication",
+        url: "https://sm-stratagem.com/products#insights",
+        description: "Leadership dashboard for founders, COOs, and operating leaders."
+      }
+    },
+    {
+      "@type": "ListItem",
+      position: 3,
+      item: {
+        "@type": "SoftwareApplication",
+        name: "SM Websites",
+        applicationCategory: "BusinessApplication",
+        url: "https://sm-stratagem.com/products#websites",
+        description: "Productized site platform with fixed scope, price, and timeline."
+      }
+    },
+    {
+      "@type": "ListItem",
+      position: 4,
+      item: {
+        "@type": "SoftwareApplication",
+        name: "VidSights",
+        applicationCategory: "BusinessApplication",
+        url: "https://sm-stratagem.com/products#vidsights",
+        description: "Content performance analytics for video-heavy teams."
+      }
+    }
+  ]
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Home", item: "https://sm-stratagem.com/" },
+    { "@type": "ListItem", position: 2, name: "Products", item: "https://sm-stratagem.com/products" }
+  ]
 };
 
 export default function ProductsPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(productsSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
       <SiteHeader />
 
       {/* ====== HERO ====== */}

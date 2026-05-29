@@ -6,9 +6,85 @@ import { SiteFooter } from "@/components/site-footer";
 import { VideoHeroBackground } from "@/components/video-hero";
 
 export const metadata: Metadata = {
-  title: "VoxxHire — Our flagship assessment platform",
+  title:
+    "VoxxHire · B2B, B2C, B2B2C Interview Assessment Platform from SM Stratagem",
   description:
-    "VoxxHire is SM Stratagem's flagship B2B, B2C, and B2B2C assessment platform. Built for hiring teams, individual job-seekers, and the universities and platforms in between."
+    "VoxxHire is SM Stratagem's flagship interview assessment platform. Three deployment modes — B2B for hiring teams, B2C for individual job-seekers, and B2B2C for universities. Trusted by TWE+ and IIT Abu Dhabi.",
+  keywords: [
+    "VoxxHire",
+    "interview assessment platform",
+    "structured interview software",
+    "candidate scoring platform",
+    "B2B interview platform",
+    "B2C interview practice",
+    "B2B2C university assessment",
+    "hiring software Dubai",
+    "hiring platform UAE",
+    "interview practice software",
+    "panel calibration software",
+    "candidate rubric software",
+    "white-label interview platform",
+    "IIT Abu Dhabi",
+    "TWE+",
+    "SM Stratagem flagship"
+  ],
+  alternates: { canonical: "/voxxhire" },
+  openGraph: {
+    title: "VoxxHire · Interview Assessment Platform",
+    description:
+      "Structured assessment, decision-ready reporting, and embeddable workflows. B2B · B2C · B2B2C.",
+    url: "/voxxhire",
+    type: "website"
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "VoxxHire · Interview Assessment Platform",
+    description:
+      "Structured assessment, decision-ready reporting, and embeddable workflows."
+  }
+};
+
+const voxxhireSchema = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  name: "VoxxHire",
+  alternateName: "VoxxHire by SM Stratagem",
+  description:
+    "Interview assessment platform with three deployment modes (B2B, B2C, B2B2C). Built for hiring teams, individual job-seekers, universities, and ed-tech platforms.",
+  url: "https://www.voxxhire.com/",
+  applicationCategory: "BusinessApplication",
+  applicationSubCategory: "Human Resources Management Software",
+  operatingSystem: "Web",
+  brand: { "@type": "Brand", name: "SM Stratagem" },
+  publisher: {
+    "@type": "Organization",
+    name: "SM Stratagem",
+    url: "https://sm-stratagem.com"
+  },
+  offers: {
+    "@type": "Offer",
+    priceCurrency: "USD",
+    price: "0",
+    availability: "https://schema.org/InStock"
+  },
+  featureList: [
+    "Configurable assessment rubrics",
+    "Panel calibration and drift detection",
+    "Decision-ready candidate reports",
+    "ATS, CRM, SSO integrations",
+    "White-label deployment",
+    "Cohort management at scale"
+  ]
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Home", item: "https://sm-stratagem.com/" },
+    { "@type": "ListItem", position: 2, name: "Products", item: "https://sm-stratagem.com/products" },
+    { "@type": "ListItem", position: 3, name: "VoxxHire", item: "https://sm-stratagem.com/voxxhire" }
+  ]
 };
 
 type MockRow = { name: string; w: number; s: string };
@@ -116,6 +192,14 @@ const sparkHeights = [30, 45, 60, 80, 68, 52, 74, 88, 96, 78, 62, 84, 92, 100];
 export default function VoxxHirePage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(voxxhireSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
       <SiteHeader />
 
       {/* ====== HERO ====== */}

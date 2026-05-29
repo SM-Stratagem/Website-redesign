@@ -5,14 +5,91 @@ import { SiteFooter } from "@/components/site-footer";
 import { VideoHeroBackground } from "@/components/video-hero";
 
 export const metadata: Metadata = {
-  title: "About — Issue №1",
+  title:
+    "About · A Dubai Product Studio Founded by Suhayl Dastager & Mariam Mohammed",
   description:
-    "The story behind SM Stratagem — a Dubai-based product studio founded by Suhayl Dastager and Mariam Mohammed, makers of VoxxHire."
+    "The story behind SM Stratagem — a Dubai-based product studio founded by Suhayl Dastager and Mariam Mohammed. Makers of VoxxHire, located at in5 Tech, Dubai Internet City.",
+  keywords: [
+    "SM Stratagem about",
+    "Suhayl Dastager",
+    "Mariam Mohammed",
+    "Dubai product studio",
+    "in5 Tech",
+    "Dubai Internet City",
+    "VoxxHire founders",
+    "UAE software founders",
+    "Dubai SaaS founders",
+    "digital studio Dubai",
+    "Issue No 1"
+  ],
+  alternates: { canonical: "/about" },
+  openGraph: {
+    title: "About SM Stratagem · Issue №1",
+    description:
+      "Founded by Suhayl Dastager and Mariam Mohammed. Located at in5 Tech, Dubai Internet City.",
+    url: "/about",
+    type: "profile"
+  }
+};
+
+const foundersSchema = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "@id": "https://sm-stratagem.com/about#suhayl",
+    name: "Suhayl Dastager",
+    givenName: "Suhayl",
+    familyName: "Dastager",
+    jobTitle: "Co-founder",
+    worksFor: {
+      "@type": "Organization",
+      name: "SM Stratagem",
+      url: "https://sm-stratagem.com"
+    },
+    sameAs: ["https://ae.linkedin.com/in/suhayl-dastager"],
+    address: { "@type": "PostalAddress", addressLocality: "Dubai", addressCountry: "AE" }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "@id": "https://sm-stratagem.com/about#mariam",
+    name: "Mariam Mohammed",
+    givenName: "Mariam",
+    familyName: "Mohammed",
+    jobTitle: "Co-founder",
+    worksFor: {
+      "@type": "Organization",
+      name: "SM Stratagem",
+      url: "https://sm-stratagem.com"
+    },
+    sameAs: ["https://www.linkedin.com/in/mariammohammed212/"],
+    address: { "@type": "PostalAddress", addressLocality: "Dubai", addressCountry: "AE" }
+  }
+];
+
+const aboutBreadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Home", item: "https://sm-stratagem.com/" },
+    { "@type": "ListItem", position: 2, name: "About", item: "https://sm-stratagem.com/about" }
+  ]
 };
 
 export default function AboutPage() {
   return (
     <>
+      {foundersSchema.map((schema) => (
+        <script
+          key={schema["@id"]}
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+        />
+      ))}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(aboutBreadcrumbSchema) }}
+      />
       <SiteHeader />
 
       {/* ====== SECTION 1 · COVER ====== */}

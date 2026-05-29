@@ -1,8 +1,24 @@
 import Link from "next/link";
 import type { CSSProperties } from "react";
+import type { Metadata } from "next";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { VideoHeroBackground } from "@/components/video-hero";
+
+export const metadata: Metadata = {
+  title:
+    "SM Stratagem · Dubai Digital Product Studio · Maker of VoxxHire",
+  description:
+    "A Dubai-based digital product studio. We build VoxxHire — our B2B, B2C, and B2B2C interview assessment platform — alongside custom websites and bespoke software for enterprises, SMEs, and universities.",
+  alternates: { canonical: "/" },
+  openGraph: {
+    title: "SM Stratagem · Dubai Digital Product Studio · Maker of VoxxHire",
+    description:
+      "We build VoxxHire and the software that supports forward-thinking teams in the UAE and beyond.",
+    url: "/",
+    type: "website"
+  }
+};
 
 const candidates = [
   { i: "AH", name: "Aaliyah Hassan", role: "Senior Engineer", w: 91, s: "9.1" },

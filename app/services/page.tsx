@@ -5,9 +5,75 @@ import { SiteFooter } from "@/components/site-footer";
 import { VideoHeroBackground } from "@/components/video-hero";
 
 export const metadata: Metadata = {
-  title: "Services — Custom websites & custom software",
+  title: "Services · Custom Websites & Custom Software Development in Dubai",
   description:
-    "Beyond VoxxHire, SM Stratagem builds custom websites and bespoke software for enterprises, SMEs, and universities. Strategy-led, delivered in sprints."
+    "Beyond VoxxHire, SM Stratagem designs custom websites and builds bespoke software for enterprises, SMEs, and universities in the UAE. Strategy-led, sprint-delivered, with a 60-day post-launch window.",
+  keywords: [
+    "custom website development Dubai",
+    "custom software development Dubai",
+    "Next.js development Dubai",
+    "bespoke software UAE",
+    "internal tools development",
+    "corporate website Dubai",
+    "marketing website Dubai",
+    "web app development UAE",
+    "API integration Dubai",
+    "ATS CRM integration",
+    "AI feature development",
+    "Dubai digital agency",
+    "in5 Tech studio",
+    "strategy-led software"
+  ],
+  alternates: { canonical: "/services" },
+  openGraph: {
+    title: "Services · Custom Websites & Software",
+    description:
+      "Custom websites and bespoke software, delivered in sprints. Project, partnership, and advisory engagements.",
+    url: "/services",
+    type: "website"
+  }
+};
+
+const servicesSchema = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  itemListElement: [
+    {
+      "@type": "Service",
+      position: 1,
+      name: "Custom Website Development",
+      provider: {
+        "@type": "Organization",
+        name: "SM Stratagem",
+        url: "https://sm-stratagem.com"
+      },
+      areaServed: "AE",
+      description:
+        "Marketing sites, corporate sites, and conversion-aware launches engineered for credibility. Includes discovery, design system, build & launch, and a 60-day post-launch window."
+    },
+    {
+      "@type": "Service",
+      position: 2,
+      name: "Custom Software Development",
+      provider: {
+        "@type": "Organization",
+        name: "SM Stratagem",
+        url: "https://sm-stratagem.com"
+      },
+      areaServed: "AE",
+      description:
+        "Internal tools, client-facing applications, integrations, and AI features. Sprint-based delivery with weekly demos."
+    }
+  ]
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Home", item: "https://sm-stratagem.com/" },
+    { "@type": "ListItem", position: 2, name: "Services", item: "https://sm-stratagem.com/services" }
+  ]
 };
 
 const stages = [
@@ -41,6 +107,14 @@ const engagements = [
 export default function ServicesPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(servicesSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
       <SiteHeader />
 
       {/* ====== HERO ====== */}

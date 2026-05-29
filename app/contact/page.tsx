@@ -5,14 +5,65 @@ import { SiteFooter } from "@/components/site-footer";
 import { VideoHeroBackground } from "@/components/video-hero";
 
 export const metadata: Metadata = {
-  title: "Contact — Tell us about your project",
+  title: "Contact · SM Stratagem · Dubai Digital Studio",
   description:
-    "Start a conversation with SM Stratagem. We're a digital product studio in Dubai building VoxxHire, custom websites, and bespoke software."
+    "Start a conversation with SM Stratagem. Email contact@sm-stratagem.com or visit us at in5 Tech, Dubai Internet City. We reply within one business day.",
+  keywords: [
+    "contact SM Stratagem",
+    "Dubai digital studio contact",
+    "in5 Tech Dubai contact",
+    "VoxxHire demo request",
+    "Dubai software studio email",
+    "hire Dubai web developers"
+  ],
+  alternates: { canonical: "/contact" },
+  openGraph: {
+    title: "Contact SM Stratagem",
+    description: "Tell us what you're working on. We reply within one business day.",
+    url: "/contact",
+    type: "website"
+  }
+};
+
+const contactSchema = {
+  "@context": "https://schema.org",
+  "@type": "ContactPage",
+  url: "https://sm-stratagem.com/contact",
+  name: "Contact SM Stratagem",
+  description: "Get in touch with the SM Stratagem team in Dubai.",
+  mainEntity: {
+    "@type": "Organization",
+    name: "SM Stratagem",
+    email: "contact@sm-stratagem.com",
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: "in5 Tech, Dubai Internet City",
+      addressLocality: "Dubai",
+      addressCountry: "AE"
+    }
+  }
+};
+
+const contactBreadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Home", item: "https://sm-stratagem.com/" },
+    { "@type": "ListItem", position: 2, name: "Contact", item: "https://sm-stratagem.com/contact" }
+  ]
 };
 
 export default function ContactPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(contactSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(contactBreadcrumbSchema) }}
+      />
       <SiteHeader />
 
       <section className="page-hero video-hero">
