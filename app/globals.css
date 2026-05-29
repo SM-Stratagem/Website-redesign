@@ -2209,3 +2209,314 @@ img,svg,video{max-width:100%;height:auto}
 .flagship-mockup,.portrait-frame,.flagship-card,.product-row,.svc-row{
   max-width:100%;
 }
+
+/* ===================================================
+   TABLET RANGE (769–1024px)
+   Keep horizontal compositions, slightly smaller than desktop.
+   The earlier @1024 rules stacked everything → we restore the
+   two-column feel for iPads / Surface devices.
+   =================================================== */
+@media (min-width:769px) and (max-width:1024px){
+  :root{--gutter:32px;--maxw:980px}
+
+  /* Mobile menu still shows (kicks in at 1024), but content layouts
+     remain horizontal. The hamburger handles nav, the body breathes. */
+
+  /* Hero stays side-by-side */
+  .hero{padding:calc(var(--nav-h) + 60px) 0 60px}
+  .hero h1{font-size:clamp(52px, 7.4vw, 76px)}
+  .hero-lede{font-size:16px;margin:28px 0 32px}
+  .hero-grid{grid-template-columns:1.25fr 1fr;gap:48px;align-items:center}
+  .hero-visual{height:auto;aspect-ratio:5/6;max-height:520px}
+  .hero-stats{grid-template-columns:repeat(4,1fr);margin-top:50px}
+  .hero-stat{padding:18px 18px}
+  .hero-stat .n{font-size:30px}
+
+  /* Voxxhire hero side-by-side */
+  .voxx-hero{padding:calc(var(--nav-h) + 50px) 0 50px}
+  .voxx-hero h1{font-size:clamp(50px, 7vw, 78px)}
+  .voxx-hero-grid{grid-template-columns:1fr 1fr;gap:42px;align-items:center}
+
+  /* Page hero on tablet stays generous */
+  .page-hero{padding:calc(var(--nav-h) + 60px) 0 50px}
+  .page-hero h1{font-size:clamp(50px, 7.6vw, 80px)}
+
+  /* Flagship section side-by-side */
+  .flagship{padding:70px 0 60px}
+  .flagship h2{font-size:clamp(46px, 6.4vw, 64px)}
+  .flagship-inner{grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+
+  /* Service / product rows side-by-side */
+  .svc-row{grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+  .svc-row.flip{grid-template-columns:1fr 1fr}
+  .product-row,.product-row.flip{grid-template-columns:1fr 1fr;gap:36px;padding:36px}
+  .flagship-card{grid-template-columns:1.05fr 1fr;gap:40px;padding:36px}
+
+  /* Section heads horizontal */
+  .section-head{grid-template-columns:.4fr 1fr;gap:40px}
+  .section-head h2{font-size:clamp(36px, 5.4vw, 56px)}
+
+  /* Lanes 2-up (3 looks too tight on iPad) */
+  .lanes{grid-template-columns:1fr 1fr}
+  .lane{min-height:auto;padding:30px 28px}
+  .lane h3{font-size:26px}
+
+  /* Modes 3-up — compact cards still fit */
+  .modes-grid{grid-template-columns:repeat(3,1fr)}
+  .mode{padding:26px 22px}
+  .mode h3{font-size:22px}
+
+  /* Numbers 4-up */
+  .numbers-grid{grid-template-columns:repeat(4,1fr)}
+  .num{padding:24px 20px}
+  .num .v{font-size:clamp(36px, 4vw, 48px)}
+
+  /* Process 4-up */
+  .process-stages{grid-template-columns:repeat(4,1fr);gap:0}
+  .process-stages::before{display:block}
+  .stage{padding:0 18px}
+  .stage-node{width:64px;height:64px;font-size:24px}
+  .stage h4{font-size:22px}
+
+  /* Partners 2-up */
+  .partner-logos{grid-template-columns:1fr 1fr}
+  .partners-head h2{font-size:clamp(36px, 5vw, 52px)}
+
+  /* Manifesto horizontal */
+  .manifesto-grid{grid-template-columns:.4fr 1fr;gap:40px}
+  .manifesto blockquote{font-size:clamp(30px, 4.4vw, 48px)}
+
+  /* CTA */
+  .cta{padding:80px 0 70px}
+  .cta h2{font-size:clamp(56px, 9vw, 96px)}
+  .big-name{font-size:clamp(140px, 22vw, 240px)}
+
+  /* About chapters horizontal */
+  .chapter-inner{grid-template-columns:.35fr 1fr;gap:50px}
+  .chapter h2{font-size:clamp(40px, 5.8vw, 68px)}
+  .chapter-numeral{position:absolute;left:-20px;top:50%;transform:translateY(-50%);font-size:clamp(180px, 28vw, 320px)}
+
+  /* Founder spread horizontal */
+  .founder-spread{grid-template-columns:.85fr 1.15fr;gap:50px;align-items:center}
+  .founder-spread.mirror{grid-template-columns:1.15fr .85fr}
+  .founder-spread.mirror .founder-portrait{order:2}
+  .founder-spread.mirror .founder-text{order:1}
+  .portrait-frame{aspect-ratio:5/7;max-height:520px}
+  .portrait-initials{font-size:clamp(120px, 15vw, 160px)}
+
+  /* Studio (chapter V) horizontal */
+  .studio-spread{grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+  .studio-info .row{grid-template-columns:130px 1fr;gap:20px}
+  .studio-map{aspect-ratio:5/4;max-height:none}
+
+  /* Principles 3-up */
+  .principles{grid-template-columns:repeat(3,1fr)}
+  .principle{padding:30px 26px}
+  .principle h3{font-size:22px}
+
+  /* Chapter product stats 3-up */
+  .chapter-product .chapter-stats{grid-template-columns:repeat(3,1fr)}
+
+  /* About cover — magazine feels intentional */
+  .cover-title{font-size:clamp(120px, 18vw, 200px)}
+  .cover-quote{font-size:clamp(20px, 2.6vw, 28px)}
+  .closing-quote{font-size:clamp(70px, 11vw, 120px)}
+
+  /* Founders grid (about intro page) */
+  .founders-grid{grid-template-columns:1fr 1fr}
+
+  /* Contact stays side-by-side */
+  .contact-grid{grid-template-columns:1.05fr 1fr;gap:50px}
+  .form-double{grid-template-columns:1fr 1fr}
+
+  /* Footer 4-col */
+  .foot-grid{grid-template-columns:1.4fr 1fr 1fr 1fr;gap:36px}
+
+  /* Mockup cards in feature rows are aspect-ratio-stable */
+  .mock{aspect-ratio:5/4;max-height:500px;min-height:auto}
+
+  /* Stage labels visible */
+  .side-note{display:block;right:30px;font-size:9.5px}
+}
+
+/* ===================================================
+   PHONE — extra fixes for mockups, fm-grid, magazine cover
+   =================================================== */
+@media (max-width:768px){
+  /* Flagship mockup grid (home cohort dashboard) stacks */
+  .fm-grid{grid-template-columns:1fr;gap:14px}
+  .fm-panel{padding:14px}
+  .fm-panel h6{font-size:9.5px;margin-bottom:10px}
+  .fm-cand{padding:8px 0;gap:8px}
+  .fm-cand .av{width:26px;height:26px;font-size:10.5px}
+  .fm-cand .info .n{font-size:12px}
+  .fm-cand .info .r{font-size:10px}
+  .fm-cand .bar{width:30px}
+  .fm-cand .score{font-size:14px}
+
+  /* Mock 2col stacks */
+  .mock-2col{grid-template-columns:1fr;gap:14px}
+
+  /* Mockup top bar (URL line) compresses */
+  .mock-top{flex-wrap:wrap;gap:6px;padding-bottom:10px;margin-bottom:14px}
+  .mock-top .l,.mock-top .r{font-size:9px}
+
+  /* Mockup network legend wraps cleanly */
+  .mock-net-legend{font-size:8.5px;gap:8px 14px}
+
+  /* Magazine cover frame inset — keep clear of text */
+  .cover{padding:calc(var(--nav-h) + 24px) var(--gutter) 36px}
+  .cover::before{inset:14px 10px}
+  .cover::after{inset:10px 4px}
+
+  /* About cover title — never overflow viewport */
+  .cover-title{
+    max-width:100%;
+    word-break:break-word;
+    overflow-wrap:break-word;
+  }
+
+  /* Chapter numeral on phone — visible but compact */
+  .chapter-numeral{
+    font-size:120px;left:-6px;top:30px;transform:none;
+    opacity:.08;
+  }
+  .chapter-inner{grid-template-columns:1fr;gap:20px}
+  .chapter-inner > div:first-child{display:none}
+
+  /* Chapter content max-width restored on phone */
+  .chapter-content{max-width:none}
+
+  /* Founder spread fully stacks */
+  .founder-spread,.founder-spread.mirror{grid-template-columns:1fr;gap:24px}
+  .founder-spread.mirror .founder-portrait,.founder-spread.mirror .founder-text{order:initial}
+  .portrait-frame{aspect-ratio:5/4;max-height:340px;padding:24px 22px 20px}
+  .portrait-initials{font-size:clamp(72px, 22vw, 120px)}
+  .portrait-numeral{font-size:36px}
+  .portrait-meta{font-size:10.5px}
+  .portrait-meta .role{font-size:9.5px}
+
+  /* Studio map remains useful */
+  .studio-map{aspect-ratio:5/4;max-height:none}
+  .studio-info{margin-top:20px;padding-top:18px}
+  .studio-info .row{padding:12px 0;font-size:12px}
+  .studio-info .row span:first-child{font-size:9.5px}
+
+  /* About big-quote left border smaller */
+  .big-quote{padding-left:16px;font-size:clamp(18px, 4.5vw, 24px)}
+
+  /* Magazine cover-byline stacks neatly */
+  .cover-byline{flex-direction:column;gap:16px;align-items:center}
+
+  /* Process stays in a 2x2 on tablet portrait / large phones */
+  .process-stages{grid-template-columns:1fr 1fr;gap:30px 20px}
+  .process-stages::before{display:none}
+
+  /* Numbers 2x2 grid on large phones */
+  .numbers-grid{grid-template-columns:1fr 1fr}
+  .num:nth-child(2){border-right:0}
+  .num:nth-child(1),.num:nth-child(2){border-bottom:1px solid rgba(250,245,233,.08)}
+
+  /* Marquee tightens */
+  .marquee-item{font-size:18px;gap:40px}
+  .marquee-item::after{margin-left:40px}
+
+  /* CTA buttons row */
+  .cta-buttons{flex-wrap:wrap;justify-content:center}
+  .cta-buttons a{flex:1 1 auto}
+
+  /* Voxx hero meta tags wrap cleanly */
+  .voxx-hero .meta{gap:6px}
+  .voxx-hero .meta .tag{font-size:10px;padding:5px 10px}
+
+  /* Lanes single-column with smaller padding */
+  .lanes{grid-template-columns:1fr}
+  .lane{padding:24px 22px}
+
+  /* Modes single-column */
+  .modes-grid{grid-template-columns:1fr}
+
+  /* Partners 1-column on phones */
+  .partner-logos,.partner-logos.four{grid-template-columns:1fr}
+
+  /* Hide the giant CTA wordmark on small screens — content focus */
+  .big-name{opacity:.4;font-size:clamp(80px, 30vw, 180px)}
+
+  /* Closing back cover info — wrap */
+  .closing-info{flex-direction:column;align-items:stretch;width:100%;max-width:280px;margin:0 auto 28px}
+  .closing-info a{text-align:center;justify-content:center}
+
+  /* Side notes hidden on all phones */
+  .side-note{display:none !important}
+
+  /* Form */
+  .contact-grid{grid-template-columns:1fr;gap:32px}
+  .form-double{grid-template-columns:1fr}
+
+  /* Footer */
+  .foot-grid{grid-template-columns:1fr;gap:28px}
+  .foot-bottom{flex-direction:column;gap:12px;align-items:flex-start}
+
+  /* Section padding tighter */
+  .section,.flagship,.partners,.process,.manifesto,.cta,.modes,.numbers,.location{
+    padding:50px 0 36px;
+  }
+}
+
+/* Small phones: even tighter */
+@media (max-width:480px){
+  .hero{padding:calc(var(--nav-h) + 28px) 0 32px}
+  .hero h1{font-size:clamp(32px, 11vw, 46px)}
+  .hero-visual{aspect-ratio:5/4;height:auto;max-height:240px}
+  .hv-corner{width:8px;height:8px}
+
+  .voxx-hero{padding:calc(var(--nav-h) + 28px) 0 36px}
+  .voxx-hero h1{font-size:clamp(32px, 11vw, 46px)}
+
+  .page-hero{padding:calc(var(--nav-h) + 28px) 0 36px}
+  .page-hero h1{font-size:clamp(32px, 11vw, 46px)}
+
+  /* Cover even tighter */
+  .cover{padding:calc(var(--nav-h) + 20px) var(--gutter) 32px}
+  .cover-title{font-size:clamp(64px, 26vw, 110px);line-height:.86}
+  .cover-quote{font-size:15px;margin:18px auto 22px;max-width:30ch}
+  .cover-byline{font-size:9px;gap:12px}
+  .cover-byline span{font-size:11px}
+
+  /* Magazine numerals */
+  .chapter{padding:calc(var(--nav-h) + 24px) 0 32px}
+  .chapter h2{font-size:clamp(28px, 9vw, 44px)}
+  .chapter p{font-size:14.5px}
+
+  /* Manifesto blockquote */
+  .manifesto blockquote{font-size:clamp(22px, 6.5vw, 32px)}
+
+  /* CTA */
+  .cta h2{font-size:clamp(36px, 13vw, 64px)}
+
+  /* Mockup cards minimum height */
+  .mock{min-height:260px;padding:16px}
+  .mock-h{font-size:16px}
+
+  /* Numbers single-column on very small */
+  .numbers-grid{grid-template-columns:1fr}
+  .num{border-right:0;border-bottom:1px solid rgba(250,245,233,.08)}
+  .num:last-child{border-bottom:0}
+
+  /* Process — single column on small phones (was 2x2) */
+  .process-stages{grid-template-columns:1fr;gap:28px}
+
+  /* Marquee even smaller */
+  .marquee-item{font-size:15px;gap:28px}
+  .marquee-item::after{margin-left:28px;font-size:11px}
+}
+
+/* ===================================================
+   Touch-only: bigger tap targets, no hover-only styles
+   =================================================== */
+@media (hover:none) and (pointer:coarse){
+  .lane:hover{background:var(--paper)}
+  .lane:hover .arrow{background:transparent;color:var(--ink-3);border-color:var(--rule-strong);transform:none}
+  .product-card:hover,.partner-logo:hover,.mode:hover,.principle:hover,.value:hover{background:var(--paper)}
+  .nav-links a{min-height:48px;display:flex;align-items:center}
+}
